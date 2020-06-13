@@ -14,7 +14,7 @@ class CartItem extends React.Component {
   increaseQuantity = () => {  //Arrow function binds itself.
     // this.state.qty += 1;
     // console.log('this', this.state);
-    // setState form 1
+    // setState form 1--- setState is a function by which react get to know where to make changes
     // this.setState({
     //   qty: this.state.qty + 1
     // });
@@ -27,6 +27,10 @@ class CartItem extends React.Component {
     });
   }
   decreaseQuantity = () =>{
+    const {qty} = this.state;
+    if(qty===0){
+      return;
+    }
     this.setState((prevState) => {
       return {
         qty: prevState.qty - 1
